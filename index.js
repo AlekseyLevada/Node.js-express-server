@@ -83,11 +83,11 @@ app.get('/', (request, response) => {
                     </li>
 
                     <li>
-                        <a href='/get_item?id=2'> 3 - Получить один товар </a>
+                        <a href='/goods/get/:id'> 3 - Получить один товар </a>
                     </li>
 
                     <li>
-                        <a href='/del_item'> 4 - Удалить товар </a>
+                        <a href='/goods/form_del_item'> 4 - Удалить товар </a>
                     </li>
 
                     <li>

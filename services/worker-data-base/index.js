@@ -44,7 +44,6 @@ module.exports = class WorkerDataBase {
 
     get(id) {
         // Абстрактный запрос к БД
-
         const sql = `SELECT * FROM ${this.name_table} WHERE ID='${id}'`
         this.query(sql)
     }
@@ -88,7 +87,7 @@ module.exports = class WorkerDataBase {
         let comma = ', '
         for (let element of entries) {
             if (element[0] != 'ID') {
-                sql += '`'+element[0]+'`'+"="+'"'+element[1]+'"'
+                sql += '`' + element[0] + '`' + "=" + '"' + element[1] + '"'
                 if (length - 1 !== count) {
                     sql += comma
                 }
@@ -100,7 +99,8 @@ module.exports = class WorkerDataBase {
         this.query(sql)
     }
 
-    delete() {
-        
+    delete(id) {
+        let sql = `DELETE FROM ${this.name_table} WHERE ID ='${id}'`
+        this.query(sql)
     }
 }

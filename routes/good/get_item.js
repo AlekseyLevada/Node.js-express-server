@@ -7,26 +7,27 @@
  * Пример работы с запросом:
  * Ввести в адресную строку - http://localhost:3000/get_item?id=1
  */
-const WorkerTabelUser = require('../../services/worker-tables/users.js')
+const WorkerTabelGoods = require('../../services/worker-tables/goods.js')
 
- module.exports = (app, connect) => 
-    app.get('/goods/get/:id',(req, res) => {
-    
-    const {id} = req.params
+module.exports = (app, connect) =>
+   app.get('/goods/get/:id', (req, res) => {
 
-    //const {id} = req.query
+      const { id } = req.params
+      //console.log(req.params)
 
-    const workerTableGoods = new WorkerTabelUser(req, res)
+      //const {id} = req.query
 
-    workerTableGoods.get(id)
+      const workerTableGoods = new WorkerTabelGoods(req, res)
 
-    //console.log(id)
+      workerTableGoods.get(id)
 
-    // //Формируем новый запрос
-    // const sql = `SELECT * FROM goods WHERE ID=${id}`
-    
-    // // Отправляем стандартный запрос на сервер
-    //     connect.query(sql, (err, result) => {
-    //         err? res.send(err) : res.send(JSON.stringify(result)) 
-    //     })
-    })
+      //console.log(id)
+
+      // //Формируем новый запрос
+      // const sql = `SELECT * FROM goods WHERE ID=${id}`
+
+      // // Отправляем стандартный запрос на сервер
+      //     connect.query(sql, (err, result) => {
+      //         err? res.send(err) : res.send(JSON.stringify(result)) 
+      //     })
+   })
