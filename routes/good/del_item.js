@@ -1,13 +1,3 @@
-/**
- * Маршрут для удаления одного товара:
- * Автор: Алексей Левада
- * Описание: Возвращает сообщение с успешным удалением товара из БД
- * Версия: v1
- * Метод: GET
- * Пример работы с запросом:
- * Ввести в адресную строку - http://localhost:3000/goods/del
- */
-
 //Добавляем плагин multer для работ с формами и файлами в node.js
 const multer = require('multer')
 
@@ -17,7 +7,17 @@ const uplodeFormFrom = multer({ dest: '/uploads' })
 //Устанавливаем название файла в форме
 const fileFromForm = uplodeFormFrom.single('MYFILE')
 
-const WorkerTableGoods = require("../../services/worker-tables/goods.js")
+const WorkerTableGoods = require('../../services/worker-tables/users.js')
+
+/**
+ * Маршрут для удаления одного товара:
+ * Автор: Алексей Левада
+ * Описание: Возвращает сообщение с успешным удалением товара из БД
+ * Версия: v1
+ * Метод: POST
+ * Пример работы с запросом:
+ * Ввести в адресную строку - http://localhost:3000/goods/del
+ */
 
 module.exports = (app) => {
     app.post('/goods/del', fileFromForm, (req, res) => {
@@ -33,7 +33,7 @@ module.exports = (app) => {
      * Версия: v1
      * Метод: GET
      * Пример работы с запросом:
-     * Ввести в адресную строку - http://localhost:3000/goods/goods/form_del_item
+     * Ввести в адресную строку - http://localhost:3000/goods/form_del_item
      */
 
     app.get('/goods/form_del_item', (req, res) => {

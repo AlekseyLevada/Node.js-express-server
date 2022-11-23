@@ -107,7 +107,11 @@ app.get('/', (request, response) => {
                     </li>
 
                     <li>
-                        <a href='/users/form_edit_user'> 9 - Редактировать пользователя</a>
+                        <a href='/users/form_del_user'> 9 - Удалить пользователя </a>
+                    </li>
+
+                    <li>
+                        <a href='/users/form_edit_user'> 10 - Редактировать пользователя</a>
                     </li>
 
                 </ul>
@@ -126,6 +130,7 @@ require('./routes/good/edit_item.js')(app, connect)
 
 // Роуты для юзеров
 require('./routes/user/add_user.js')(app)
+require('./routes/user/del_user.js')(app)
 require('./routes/user/edit_user.js')(app)
 require('./routes/user/get_all_users.js')(app)
 require('./routes/user/get_user.js')(app)
