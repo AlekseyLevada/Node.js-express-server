@@ -7,7 +7,7 @@ const uplodeFormFrom = multer({ dest: '/uploads' })
 //Устанавливаем название файла в форме
 const fileFromForm = uplodeFormFrom.single('MYFILE')
 
-const WorkerTableGoods = require('../../services/worker-tables/users.js')
+const WorkerTableGoods = require('../../services/worker-tables/goods.js')
 
 /**
  * Маршрут для удаления одного товара:
