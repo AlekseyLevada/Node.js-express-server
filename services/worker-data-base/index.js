@@ -2,6 +2,7 @@
 
 const mysql = require('mysql')
 
+
 // Абстрактный класс для работы с таблицами в БД
 
 module.exports = class WorkerDataBase {
@@ -59,18 +60,17 @@ module.exports = class WorkerDataBase {
         const length = Object.keys(data).length
 
         // С помощью конкатенации склеить две части запроса
-        let i = 0
+        let count = 0
 
         for (let field in data) {
             partField += '`' + field + '`'
             partValue += "'" + data[field] + "'"
-            if (length - 1 !== i) {
+            if (length - 1 !== count) {
                 partField += `, `
                 partValue += `, `
             }
-            i++
+            count++
         }
-
         partField += ')'
         partValue += ')'
 
@@ -95,7 +95,6 @@ module.exports = class WorkerDataBase {
             count++
         }
         sql += ` WHERE ID='${data.ID}'`
-
         this.query(sql)
     }
 

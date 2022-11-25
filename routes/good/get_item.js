@@ -5,11 +5,11 @@
  * Версия: v1
  * Метод: GET
  * Пример работы с запросом:
- * Ввести в адресную строку - http://localhost:3000/get_item?id=1
+ * Ввести в адресную строку - http://localhost:3000/goods/get_item/
  */
 const WorkerTabelGoods = require('../../services/worker-tables/goods.js')
 
-module.exports = (app, connect) =>
+module.exports = (app) =>
    app.get('/goods/get/:id', (req, res) => {
 
       const { id } = req.params
@@ -20,14 +20,4 @@ module.exports = (app, connect) =>
       const workerTableGoods = new WorkerTabelGoods(req, res)
 
       workerTableGoods.get(id)
-
-      //console.log(id)
-
-      // //Формируем новый запрос
-      // const sql = `SELECT * FROM goods WHERE ID=${id}`
-
-      // // Отправляем стандартный запрос на сервер
-      //     connect.query(sql, (err, result) => {
-      //         err? res.send(err) : res.send(JSON.stringify(result)) 
-      //     })
    })

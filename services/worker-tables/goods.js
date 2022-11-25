@@ -1,4 +1,4 @@
-const WorkerDataBase = require('../worker-data-base/')
+const WorkerDataBase = require('../worker-data-base/index.js')
 
 module.exports = class WorkerTableGoods extends WorkerDataBase {
     #name = 'goods'

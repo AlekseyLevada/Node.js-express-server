@@ -10,20 +10,16 @@ const fileFromForm = uplodeFormFrom.single('MYFILE')
 // Установка плагина который генерирует случайные ID
 const uuid = require('uuid')
 
+const WorkerTableGoods = require('../../services/worker-tables/goods.js')
 
-/**
+module.exports = (app) => {
+    /**
  * Маршрут для добавления одного товара:
  * Автор: Алексей Левада
  * Описание: Возвращает JSON с полями, которые описывают успешное добавление товара в БД 
  * Версия: v1
  * Метод: POST
- * Пример работы с запросом:
- * 
  */
-
-const WorkerTableGoods = require('../../services/worker-tables/goods.js')
-
-module.exports = (app, connect) => {
     app.post('/goods/add', fileFromForm, (req, res) => {
 
         //console.log(req.body.TITLE)
@@ -35,11 +31,8 @@ module.exports = (app, connect) => {
             'IMG': req.body.IMG,
             'COUNT': req.body.COUNT,
         }
-
-
-
         const workerTableGoods = new WorkerTableGoods(req, res)
-        
+
         workerTableGoods.add(data)
 
         // //Сгенерировать запрос на добавление товаров в БД
@@ -53,8 +46,6 @@ module.exports = (app, connect) => {
         // })
     })
 
-
-    //
     /**
      * Вспомогательный маршрут для добавления товара в БД
      * Автор: Алексей Левада
@@ -62,7 +53,7 @@ module.exports = (app, connect) => {
      * Версия: v1
      * Метод: GET
      * Пример работы с запросом:
-     * Ввести в адресную строку - http://localhost:3000/form_add_item
+     * Ввести в адресную строку - http://localhost:3000/goods/form_add_item
      */
 
     app.get('/goods/form_add_good', (req, res) => {

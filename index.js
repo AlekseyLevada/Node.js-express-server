@@ -122,11 +122,11 @@ app.get('/', (request, response) => {
 )
 
 // Роуты для товаров
-require('./routes/good/get_all_goods.js')(app, connect)
-require('./routes/good/get_item.js')(app, connect)
-require('./routes/good/del_item.js')(app, connect)
-require('./routes/good/add_item.js')(app, connect)
-require('./routes/good/edit_item.js')(app, connect)
+require('./routes/good/get_all_goods.js')(app)
+require('./routes/good/get_item.js')(app)
+require('./routes/good/del_item.js')(app)
+require('./routes/good/add_item.js')(app)
+require('./routes/good/edit_item.js')(app)
 
 // Роуты для юзеров
 require('./routes/user/add_user.js')(app)
@@ -135,6 +135,11 @@ require('./routes/user/edit_user.js')(app)
 require('./routes/user/get_all_users.js')(app)
 require('./routes/user/get_user.js')(app)
 
+// Роуты для отзывов
+require('./routes/reviews/add_review.js')(app)
+require('./routes/reviews/get_all_reviews.js')(app)
+require('./routes/reviews/del_review.js')(app)
+require('./routes/reviews/edit_review.js')(app)
 
 //Роут для отправки писем
 require('./routes/mail/index.js')(app)

@@ -19,7 +19,7 @@ const fileFromForm = uplodeFormFrom.single('MYFILE')
 
 const WorkerTableGoods = require ('../../services/worker-tables/goods.js')
 
-module.exports = (app, connect) => {
+module.exports = (app) => {
     app.post('/goods/edit', fileFromForm, (req, res) => {
 
         const data = {
@@ -45,7 +45,7 @@ module.exports = (app, connect) => {
     })
 
 
-    //
+    
     /**
      * Вспомогательный маршрут для редактирования товара в БД
      * Автор: Алексей Левада
