@@ -7,7 +7,7 @@ const uplodeFormFrom = multer({ dest: '/uploads' })
 //Устанавливаем название файла в форме
 const fileFromForm = uplodeFormFrom.single('MYFILE')
 
-const nodeMailer = require('nodemailer')
+const WorkerForMail = require('../../services/worker-for-mail/index.js')
 
 /**
  * Маршрут для отправки сообщения администратору:
@@ -23,31 +23,39 @@ const nodeMailer = require('nodemailer')
 
 module.exports = (app, connect) => {
     app.post('/mail/send/', fileFromForm, (req, res) => {
+
         const messageToManager = req.body.TEXT
 
-        let transporter = nodeMailer.createTransport({
-            host: 'smtp.yandex.ru',
-            port: 465,
-            secure: 465,
-            auth: {
-                user: 'inordic2022',
-                pass: 'inordic',
-            }
-        })
-        let mailOptions = {
-            from: '"inordic"<inordic2022@yandex.ru>',
-            to: 'aleksey.levada@gmail.com',
-            subject: 'Тестовое письмо с магазина Inordic',
-            html: messageToManager
-        }
+        const workerForMail = new WorkerForMail(req, res)
 
-        transporter.sendMail(mailOptions, (err, info) => {
+        workerForMail.sendMail(messageToManager)
 
-            err ?
-                res.send(err)
-                :
-                res.send('Письмо отправленно', info.messageId, info.response)
-        })
+        
+
+        // let transporter = nodeMailer.createTransport({
+        //     host: 'smtp.yandex.ru',
+        //     port: 465,
+        //     secure: 465,
+        //     auth: {
+        //         user: 'inordic2022',
+        //         pass: 'inordic',
+        //     }
+        // })
+        // let mailOptions = {
+        //     from: '"inordic"<inordic2022@yandex.ru>',
+        //     to: 'aleksey.levada@gmail.com',
+        //     subject: 'Тестовое письмо с магазина Inordic',
+        //     html: messageToManager
+        // }
+
+        // transporter.sendMail(mailOptions, (err, info) => {
+
+        //     err ?
+        //         res.send(err)
+        //         :
+        //         res.send('Письмо отправленно', info.messageId, info.response)
+        // })
+
     })
 
     /**
@@ -76,6 +84,5 @@ module.exports = (app, connect) => {
             </form>
         `
         )
-
     })
 }

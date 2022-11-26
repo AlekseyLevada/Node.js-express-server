@@ -1,6 +1,7 @@
 //Документация NODE
 //https://nodejs.org/dist/latest-v16.x/docs/api/synopsis.html#example
 
+const WorkerFiles = require('./services/worker-files/index.js')
 
 //Импортируем плагины
 const express = require("express")
@@ -11,24 +12,24 @@ const port = 3000
 
 //1. Создадим конфигурацию на подключение
 
-function config () {
-    return {
-      host: "94.228.126.172",
-      port: 3306,
-      user: "inordic_sch_usr",
-      password: "VANCfzNsov9GDt1M",
-      database: "inordic_school",
-      connectionLimit : 1000,
-      connectTimeout  : 60 * 60 * 1000,
-      acquireTimeout  : 60 * 60 * 1000,
-      timeout         : 60 * 60 * 1000
-    }
-  }
+// function config () {
+//     return {
+//       host: "94.228.126.172",
+//       port: 3306,
+//       user: "inordic_sch_usr",
+//       password: "VANCfzNsov9GDt1M",
+//       database: "inordic_school",
+//       connectionLimit : 1000,
+//       connectTimeout  : 60 * 60 * 1000,
+//       acquireTimeout  : 60 * 60 * 1000,
+//       timeout         : 60 * 60 * 1000
+//     }
+//   }
 
 
 //2. Создадим подключение
 
-const connect = mysql.createPool(config())
+//const connect = mysql.createPool(config())
 
 //Инициализируем приложение express
 const app = express();
