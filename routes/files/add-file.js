@@ -1,6 +1,7 @@
 const multer = require('multer')
 const fs = require('fs')
 
+
 //Настраиваем куда будем сохранять файл
 const uplodeFormFrom = multer({ dest: '/uploads' })
 
