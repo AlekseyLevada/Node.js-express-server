@@ -67,101 +67,104 @@ const app = express();
 //Первый базовый маршрут приложения
 app.get('/', (request, response) => {
 
-        //Посылаем ответ от сервера
-        ///console.log(request.query.test)
+    //Посылаем ответ от сервера
+    ///console.log(request.query.test)
 
-        //Декомпозиция объекта
-        const {test, name} = request.query
+    //Декомпозиция объекта
+    const { test, name } = request.query
 
-        response.send(
-            `
-                <h1 style='text-align:center'>
-                    Разводная страница
-                </h1>
-                <div class='container' style='display:flex; justify-content:space-around'>
-                    <div class='mail'>
-                        <h2>
-                            Отправка почты
-                        </h2>
-                        <ul style='list-style:none'>
-                            <li>
-                                <a href='/mail/form'>Отправить письмо</a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class='goods'>
-                        <h2 style='text-align:center'>
-                            Товары
-                        </h2>
-                            <ul style='line-height:30px; list-style:none'>
+    response.send(
+        `<body style='margin:0px; padding:0px'>
+                <div class='wrapper' style='background:beige; height:100vh'>
+                    <h1 style='text-align:center; font-family:Trebuchet MS'>
+                        Разводная страница
+                    </h1>
+                    <div class='container' style='display:flex; justify-content:space-around; font-family:Trebuchet MS; font-size:18px'>
+                        <div class='mail' style='outline:3px solid #000; padding:15px; width:20%'>
+                            <h2 style='text-align:center'>
+                                Почта
+                            </h2>
+                            <ul style='list-style:square'>
                                 <li>
-                                    <a href='/goods/get'>Получить товары </a>
-                                </li>
-                                <li>
-                                    <a href='/goods/get/:id'>Получить один товар</a>
-                                </li>
-                                <li>
-                                    <a href='/goods/form_add_good'>Добавить товар</a>
-                                </li>
-                                <li>
-                                    <a href='/goods/form_edit_item'>Редактировать товар</a>
-                                </li>
-                                <li>
-                                    <a href='/goods/form_del_item'>Удалить товар</a>
-                                </li> 
-                            </ul>
-                    </div>
-
-                    <div class='users'>
-                        <h2 style='text-align:center'>
-                            Пользователи
-                        </h2>
-                            <ul style='line-height: 30px; list-style:none'>
-                                <li>
-                                    <a href='/users/get'>Список пользователей</a>
-                                </li>
-                                <li>
-                                    <a href='/users/get'>Получить пользователя</a>
-                                </li>
-                                <li>
-                                    <a href='/users/form_add_user'>Добавить пользователя</a>
-                                </li>
-                                <li>
-                                    <a href='/users/form_edit_user'> Редактировать пользователя</a>
-                                </li>
-                                <li>
-                                    <a href='/users/form_del_user'>Удалить пользователя</a>
+                                    <a href='/mail/form' style='text-decoration:none'>Отправить письмо</a>
                                 </li>
                             </ul>
-                    </div>
+                        </div>
 
-                    <div class='reviews'>
-                        <h2 style='text-align:center'>
-                            Отзывы
-                        </h2>
-                            <ul style='line-height:30px; list-style:none'>
-                                <li>
-                                    <a href='/reviews/get'>Список отзывов</a>
-                                </li>
-                                <li>
-                                    <a href=''>Получить отзыв</a>
-                                </li>
-                                <li>
-                                    <a href='/reviews/form_add_review'>Добавить отзыв</a>
-                                </li>
-                                <li>
-                                    <a href='/users/form_del_review'>Удалить отзыв</a>
-                                </li>
-                                <li>
-                                    <a href='/users/form_edit_review'>Редактировать отзыв</a>
-                                </li>
-                            </ul>
+                        <div class='goods' style='outline:3px solid #000; padding:15px; width:20%'>
+                            <h2 style='text-align:center'>
+                                Товары
+                            </h2>
+                                <ul style='line-height:30px; list-style:square'>
+                                    <li>
+                                        <a href='/goods/get' style='text-decoration:none'>Получить товары </a>
+                                    </li>
+                                    <li>
+                                        <a href='/goods/form_get_good' style='text-decoration:none'>Получить один товар</a>
+                                    </li>
+                                    <li>
+                                        <a href='/goods/form_add_good' style='text-decoration:none'>Добавить товар</a>
+                                    </li>
+                                    <li>
+                                        <a href='/goods/form_edit_item' style='text-decoration:none'>Редактировать товар</a>
+                                    </li>
+                                    <li>
+                                        <a href='/goods/form_del_item' style='text-decoration:none'>Удалить товар</a>
+                                    </li> 
+                                </ul>
+                        </div>
+
+                        <div class='users' style='outline:3px solid #000; padding:15px; width:20%'>
+                            <h2 style='text-align:center'>
+                                Пользователи
+                            </h2>
+                                <ul style='line-height: 30px; list-style:square'>
+                                    <li>
+                                        <a href='/users/get' style='text-decoration:none'>Список пользователей</a>
+                                    </li>
+                                    <li>
+                                        <a href='/users/get' style='text-decoration:none'>Получить пользователя</a>
+                                    </li>
+                                    <li>
+                                        <a href='/users/form_add_user' style='text-decoration:none'>Добавить пользователя</a>
+                                    </li>
+                                    <li>
+                                        <a href='/users/form_edit_user' style='text-decoration:none'>Редактировать пользователя</a>
+                                    </li>
+                                    <li>
+                                        <a href='/users/form_del_user' style='text-decoration:none'>Удалить пользователя</a>
+                                    </li>
+                                </ul>
+                        </div>
+
+                        <div class='reviews' style='outline:3px solid #000; padding:15px; width:20%'>
+                            <h2 style='text-align:center'>
+                                Отзывы
+                            </h2>
+                                <ul style='line-height:30px; list-style:square'>
+                                    <li>
+                                        <a href='/reviews/get' style='text-decoration:none'>Список отзывов</a>
+                                    </li>
+                                    <li>
+                                        <a href='' style='text-decoration:none'>Получить отзыв</a>
+                                    </li>
+                                    <li>
+                                        <a href='/reviews/form_add_review' style='text-decoration:none'>Добавить отзыв</a>
+                                    </li>
+                                    <li>
+                                        <a href='/users/form_del_review' style='text-decoration:none'>Удалить отзыв</a>
+                                    </li>
+                                    <li>
+                                        <a href='/users/form_edit_review' style='text-decoration:none'>Редактировать отзыв</a>
+                                    </li>
+                                </ul>
+                        </div>
                     </div>
                 </div>
+            </body>
             `
-        )
-    }
+    )
+}
 )
 
 //Распределяем роутеры по файлам
