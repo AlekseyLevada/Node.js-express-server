@@ -75,53 +75,90 @@ app.get('/', (request, response) => {
 
         response.send(
             `
-                <h1>
+                <h1 style='text-align:center'>
                     Разводная страница
                 </h1>
-                <ul style='line-height: 30px'>
+                <div class='container' style='display:flex; justify-content:space-around'>
+                    <div class='mail'>
+                        <h2>
+                            Отправка почты
+                        </h2>
+                        <ul style='list-style:none'>
+                            <li>
+                                <a href='/mail/form'>Отправить письмо</a>
+                            </li>
+                        </ul>
+                    </div>
 
-                    <li>
-                        <a href='/mail/form'> 1 - Отправить письмо</a>
-                    </li>
+                    <div class='goods'>
+                        <h2 style='text-align:center'>
+                            Товары
+                        </h2>
+                            <ul style='line-height:30px; list-style:none'>
+                                <li>
+                                    <a href='/goods/get'>Получить товары </a>
+                                </li>
+                                <li>
+                                    <a href='/goods/get/:id'>Получить один товар</a>
+                                </li>
+                                <li>
+                                    <a href='/goods/form_add_good'>Добавить товар</a>
+                                </li>
+                                <li>
+                                    <a href='/goods/form_edit_item'>Редактировать товар</a>
+                                </li>
+                                <li>
+                                    <a href='/goods/form_del_item'>Удалить товар</a>
+                                </li> 
+                            </ul>
+                    </div>
 
-                    <li>
-                        <a href='/goods/get'> 2 - Получить все товары </a>
-                    </li>
+                    <div class='users'>
+                        <h2 style='text-align:center'>
+                            Пользователи
+                        </h2>
+                            <ul style='line-height: 30px; list-style:none'>
+                                <li>
+                                    <a href='/users/get'>Список пользователей</a>
+                                </li>
+                                <li>
+                                    <a href='/users/get'>Получить пользователя</a>
+                                </li>
+                                <li>
+                                    <a href='/users/form_add_user'>Добавить пользователя</a>
+                                </li>
+                                <li>
+                                    <a href='/users/form_edit_user'> Редактировать пользователя</a>
+                                </li>
+                                <li>
+                                    <a href='/users/form_del_user'>Удалить пользователя</a>
+                                </li>
+                            </ul>
+                    </div>
 
-                    <li>
-                        <a href='/goods/get/:id'> 3 - Получить один товар </a>
-                    </li>
-
-                    <li>
-                        <a href='/goods/form_del_item'> 4 - Удалить товар </a>
-                    </li>
-
-                    <li>
-                        <a href='/goods/form_add_good'> 5 - Добавить товар </a>
-                    </li>
-
-                    <li>
-                        <a href='/goods/form_edit_item'> 6 - Редактировать товар </a>
-                    </li>
-
-                    <li>
-                        <a href='/users/get'> 7 - Список всех пользователей</a>
-                    </li>
-
-                    <li>
-                        <a href='/users/form_add_user'> 8 - Добавить пользователя </a>
-                    </li>
-
-                    <li>
-                        <a href='/users/form_del_user'> 9 - Удалить пользователя </a>
-                    </li>
-
-                    <li>
-                        <a href='/users/form_edit_user'> 10 - Редактировать пользователя</a>
-                    </li>
-
-                </ul>
-                
+                    <div class='reviews'>
+                        <h2 style='text-align:center'>
+                            Отзывы
+                        </h2>
+                            <ul style='line-height:30px; list-style:none'>
+                                <li>
+                                    <a href='/reviews/get'>Список отзывов</a>
+                                </li>
+                                <li>
+                                    <a href=''>Получить отзыв</a>
+                                </li>
+                                <li>
+                                    <a href='/reviews/form_add_review'>Добавить отзыв</a>
+                                </li>
+                                <li>
+                                    <a href='/users/form_del_review'>Удалить отзыв</a>
+                                </li>
+                                <li>
+                                    <a href='/users/form_edit_review'>Редактировать отзыв</a>
+                                </li>
+                            </ul>
+                    </div>
+                </div>
             `
         )
     }
@@ -145,6 +182,15 @@ folderFromRoutes.map(folderName => {
 
         require(`./${NAME_FOLDER_ROUTES}/${folderName}/${fileName}`)(app)
     })
+})
+
+let mainDir = 'routes'
+
+let firstLevelDir = fs.readdirSync(`./${mainDir}`)
+
+firstLevelDir.map(element => {
+    let fileName = fs.readdirSync(`./${mainDir}/${element}`)
+    console.log(fileName)
 })
 
 // // Роуты для товаров

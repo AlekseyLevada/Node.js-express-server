@@ -70,7 +70,7 @@ module.exports = (app, connect) => {
     app.get('/mail/form', (req, res) => {
         res.send(
             `<h1>
-            Форма для отправки  письма
+            Форма для отправки  почты
         </h1>
             <form action='/mail/send' method='post' enctype='multipart/form-data'>
                 <textarea 
