@@ -37,7 +37,17 @@
         - get_review.js
 
 ### -- services (Работа с таблицами mySQL с помощью ООП)
-    - worker-data-base
+    - worker-data-base 
+        - index.js (Абстрактный class с методами для маршрутов)
+    - worker-files
+        - index.js ()
+    - worker-for-mail 
+        - index.js (class для реализации отправки почтового сообщения администрации магазина)
+    - worker-tables
+        - goods.js (class реализации работы с mySQL таблицей товаров в магазине)
+        - users.js (class реализации работы с mySQL таблицей пользователей в магазине)
+        - reviews.js (class реализации работы с mySQL таблицей отзывово по товарам магазина)
+    
 ### -- uploads (Папка для загрузки файлов, промежуточная папка для файловой системы)
 
 ### index.js - главная разводная страница REST API
