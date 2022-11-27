@@ -12,6 +12,7 @@ const uuid = require('uuid')
 const WorkerDataReviews = require('../../services/worker-tables/reviews.js')
 
 module.exports = app => {
+
     /**
  * Маршрут для добавления отзыва:
  * Автор: Алексей Левада
@@ -19,17 +20,19 @@ module.exports = app => {
  * Версия: v1
  * Метод: POST 
  */
+
     app.post('/reviews/add', fileFromForm, (req, res) => {
+
         data = {
             'ID': uuid.v4(),
             'USER': req.body.NAME,
             'GOOD_ID': req.body.GOOD_ID,
             'TEXT': req.body.TEXT,
         }
+
         new WorkerDataReviews(req, res).add(data)
     })
 
-    //
     /**
      * Вспомогательный маршрут для добавления отзыва в БД
      * Автор: Алексей Левада

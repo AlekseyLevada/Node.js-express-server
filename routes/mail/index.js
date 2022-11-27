@@ -14,14 +14,10 @@ const WorkerForMail = require('../../services/worker-for-mail/index.js')
  * Автор: Алексей Левада
  * Описание: Возвращает JSON с результатом отправки письма
  * Версия: v1
- * Метод: GET
- * Пример работы с запросом:
- * Ввести в адресную строку - http://localhost:3000/mail/send/:text
+ * Метод: POST
  */
 
-
-
-module.exports = (app, connect) => {
+module.exports = (app) => {
     app.post('/mail/send/', fileFromForm, (req, res) => {
 
         const messageToManager = req.body.TEXT
@@ -59,7 +55,7 @@ module.exports = (app, connect) => {
     })
 
     /**
-  * Вспомогательный маршрут с формой для отпрвки сообщения админисиратору:
+  * Вспомогательный маршрут с формой для отправки сообщения админисиратору:
   * Автор: Алексей Левада
   * Описание: Возвращает html форму
   * Версия: v1

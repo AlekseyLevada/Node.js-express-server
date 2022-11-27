@@ -106,10 +106,10 @@ app.get('/', (request, response) => {
                                         <a href='/goods/form_add_good' style='text-decoration:none'>Добавить товар</a>
                                     </li>
                                     <li>
-                                        <a href='/goods/form_edit_item' style='text-decoration:none'>Редактировать товар</a>
+                                        <a href='/goods/form_edit_good' style='text-decoration:none'>Редактировать товар</a>
                                     </li>
                                     <li>
-                                        <a href='/goods/form_del_item' style='text-decoration:none'>Удалить товар</a>
+                                        <a href='/goods/form_del_good' style='text-decoration:none'>Удалить товар</a>
                                     </li> 
                                 </ul>
                         </div>
@@ -123,7 +123,7 @@ app.get('/', (request, response) => {
                                         <a href='/users/get' style='text-decoration:none'>Список пользователей</a>
                                     </li>
                                     <li>
-                                        <a href='/users/get' style='text-decoration:none'>Получить пользователя</a>
+                                        <a href='/users/form_get_user' style='text-decoration:none'>Получить пользователя</a>
                                     </li>
                                     <li>
                                         <a href='/users/form_add_user' style='text-decoration:none'>Добавить пользователя</a>

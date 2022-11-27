@@ -10,10 +10,11 @@ const fileFromForm = uplodeFormFrom.single('MYFILE')
 // Установка плагина который генерирует случайные ID
 const uuid = require('uuid')
 
-const WorkerTableUsers = require('../../services/worker-tables/users')
+const WorkerTableUsers = require('../../services/worker-tables/users.js')
 
 module.exports = (app) => {
     app.post('/users/add', fileFromForm, (req, res) => {
+
         const data = {
             'ID': uuid.v4(),
             'NAME': req.body.NAME,
@@ -26,9 +27,7 @@ module.exports = (app) => {
             'ROLE': req.body.ROLE,
         }
 
-        
         const workerTableUser = new WorkerTableUsers(req, res)
-
         workerTableUser.add(data)
 
         // const id = uuid.v4()
@@ -59,7 +58,7 @@ module.exports = (app) => {
      * Версия: v1
      * Метод: GET
      * Пример работы с запросом:
-     * Ввести в адресную строку - http://localhost:3000/form_add_user
+     * Ввести в адресную строку - http://localhost:3000/users/form_add_user
      */
 
     app.get('/users/form_add_user', (req, res) => {

@@ -23,6 +23,7 @@ module.exports = (app) => {
     app.post('/goods/add', fileFromForm, (req, res) => {
 
         //console.log(req.body.TITLE)
+
         const data = {
             "ID": uuid.v4(),
             'TITLE': req.body.TITLE,
@@ -31,16 +32,14 @@ module.exports = (app) => {
             'IMG': req.body.IMG,
             'COUNT': req.body.COUNT,
         }
+
         const workerTableGoods = new WorkerTableGoods(req, res)
 
         workerTableGoods.add(data)
 
         // //Сгенерировать запрос на добавление товаров в БД
-
         // const sql = 'INSERT INTO `goods` (`ID`,`TITLE`,`DISCR`,`PRICE`,`IMG`,`COUNT`) VALUES ("' + id + '","' + title + '","' + discr + '","' + price + '","' + img + '","' + count + '")'
-
         // //Стандартная конструкция для отправки запроса в базу
-
         // connect.query(sql, (err, result) => {
         //     err ? res.send(err) : res.send(JSON.stringify(result))
         // })
@@ -53,7 +52,7 @@ module.exports = (app) => {
      * Версия: v1
      * Метод: GET
      * Пример работы с запросом:
-     * Ввести в адресную строку - http://localhost:3000/goods/form_add_item
+     * Ввести в адресную строку - http://localhost:3000/goods/form_add_good
      */
 
     app.get('/goods/form_add_good', (req, res) => {

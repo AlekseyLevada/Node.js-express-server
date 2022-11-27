@@ -33,12 +33,12 @@ module.exports = (app) => {
      * Версия: v1
      * Метод: GET
      * Пример работы с запросом:
-     * Ввести в адресную строку - http://localhost:3000/goods/form_del_item
+     * Ввести в адресную строку - http://localhost:3000/goods/form_del_good
      */
 
-    app.get('/goods/form_del_item', (req, res) => {
+    app.get('/goods/form_del_good', (req, res) => {
         res.send(`
-        <form method='post' action='/goods/del/' enctype='multipart/form-data'>
+        <form method='post' action='/goods/del' enctype='multipart/form-data'>
             <h1>
                 Введите ID товара для удаления
             </h1>

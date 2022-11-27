@@ -14,7 +14,6 @@ const fileFromForm = uplodeFormFrom.single('MYFILE')
  * Версия: v1
  * Метод: POST
  * Пример работы с запросом:
- * 
  */
 
 const WorkerTableGoods = require ('../../services/worker-tables/goods.js')
@@ -37,15 +36,12 @@ module.exports = (app) => {
 
 
         // const sql = "UPDATE goods SET `TITLE`='" + title + "',`DISCR`='" + discr + "',`PRICE`='" + price + "',`IMG`='" + img + "',`COUNT`='" + count + "' WHERE `ID`='" + id + "'"
-
         // //Стандартная конструкция для отправки запроса в базу
         // connect.query(sql, (err, result) => {
         //     err ? res.send(err) : res.send(JSON.stringify(result))
         // })
     })
 
-
-    
     /**
      * Вспомогательный маршрут для редактирования товара в БД
      * Автор: Алексей Левада
@@ -53,10 +49,10 @@ module.exports = (app) => {
      * Версия: v1
      * Метод: GET
      * Пример работы с запросом:
-     * Ввести в адресную строку - http://localhost:3000/form_edit_item
+     * Ввести в адресную строку - http://localhost:3000/form_edit_good
      */
 
-    app.get('/goods/form_edit_item', (req, res) => {
+    app.get('/goods/form_edit_good', (req, res) => {
         res.send(
             `<h1>
             Форма для редактирования товара

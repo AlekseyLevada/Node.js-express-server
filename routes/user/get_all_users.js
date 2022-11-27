@@ -13,12 +13,6 @@ const WorkerTableUsers = require('../../services/worker-tables/users.js')
 module.exports = (app) => {
     app.get('/users/get', (req, res) => {
 
-        //console.log(WorkerTableUsers)
-
-        //res.send(`Получение всех пользователей`)
-
-        //Создадим экземпляр вспомогательного класса 
-
         const workerTableUsers = new WorkerTableUsers(req, res)
 
         workerTableUsers.getAll()
