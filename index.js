@@ -6,6 +6,11 @@ const WorkerFiles = require('./services/worker-files/index.js')
 //Импортируем плагины
 const express = require("express")
 const mysql = require('mysql')
+
+// Плагин для работы с файлами и папками
+const fs = require('fs')
+
+//Рабочий порт
 const port = 3000
 
 //Создадим подключение к баззе данных
@@ -122,30 +127,51 @@ app.get('/', (request, response) => {
     }
 )
 
-// Роуты для товаров
-require('./routes/good/get_all_goods.js')(app)
-require('./routes/good/get_item.js')(app)
-require('./routes/good/del_item.js')(app)
-require('./routes/good/add_item.js')(app)
-require('./routes/good/edit_item.js')(app)
+//Распределяем роутеры по файлам
 
-// Роуты для юзеров
-require('./routes/user/add_user.js')(app)
-require('./routes/user/del_user.js')(app)
-require('./routes/user/edit_user.js')(app)
-require('./routes/user/get_all_users.js')(app)
-require('./routes/user/get_user.js')(app)
+const NAME_FOLDER_ROUTES = 'routes'
 
-// Роуты для отзывов
-require('./routes/reviews/add_review.js')(app)
-require('./routes/reviews/get_all_reviews.js')(app)
-require('./routes/reviews/del_review.js')(app)
-require('./routes/reviews/edit_review.js')(app)
+//Получаем массив с названиями папок внутри папки routes
+const folderFromRoutes = fs.readdirSync(`./${NAME_FOLDER_ROUTES}`)
 
-//Роут для отправки писем
-require('./routes/mail/index.js')(app)
+folderFromRoutes.map(folderName => {
+    //получаем папки, внутри папок в папке routes
 
-//Начинаем прослушивать определенный порт
+    const folderFromInRoutes = fs.readdirSync(`./${NAME_FOLDER_ROUTES}/${folderName}/`)
+
+    folderFromInRoutes.map(fileName => {
+
+        //console.log(fileName)
+
+        require(`./${NAME_FOLDER_ROUTES}/${folderName}/${fileName}`)(app)
+    })
+})
+
+// // Роуты для товаров
+// require('./routes/good/get_all_goods.js')(app)
+// require('./routes/good/get_item.js')(app)
+// require('./routes/good/del_item.js')(app)
+// require('./routes/good/add_item.js')(app)
+// require('./routes/good/edit_item.js')(app)
+
+// // Роуты для юзеров
+// require('./routes/user/add_user.js')(app)
+// require('./routes/user/del_user.js')(app)
+// require('./routes/user/edit_user.js')(app)
+// require('./routes/user/get_all_users.js')(app)
+// require('./routes/user/get_user.js')(app)
+
+// // Роуты для отзывов
+// require('./routes/reviews/add_review.js')(app)
+// require('./routes/reviews/get_all_reviews.js')(app)
+// require('./routes/reviews/del_review.js')(app)
+// require('./routes/reviews/edit_review.js')(app)
+
+// //Роут для отправки писем
+// require('./routes/mail/index.js')(app)
+
+//Начинаем прослушивать порт который указали в настройках сервера (localhost:3000/)
+
 app.listen(port, () => {
     console.log(`Сервер запущен на порту: ${port}`)
 });
