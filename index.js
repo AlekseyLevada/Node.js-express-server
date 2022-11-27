@@ -184,15 +184,6 @@ folderFromRoutes.map(folderName => {
     })
 })
 
-let mainDir = 'routes'
-
-let firstLevelDir = fs.readdirSync(`./${mainDir}`)
-
-firstLevelDir.map(element => {
-    let fileName = fs.readdirSync(`./${mainDir}/${element}`)
-    console.log(fileName)
-})
-
 // // Роуты для товаров
 // require('./routes/good/get_all_goods.js')(app)
 // require('./routes/good/get_item.js')(app)
