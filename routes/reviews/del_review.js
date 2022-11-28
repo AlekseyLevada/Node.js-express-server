@@ -39,8 +39,8 @@ app.post('/reviews/del', fileFromForm, (req,res) => {
                 Введите ID отзыва для его удаления
             </h1>
             <form method='post' action='/reviews/del' enctype='multipart/form-data'>
-                <input type='text' placeholder='ID отзыва' name='ID'/>
-                <input type='submit' value='Удалить'>
+                <input type='text' placeholder='ID отзыва' name='ID'/><br>
+                <input type='submit' value='Удалить' style='margin-top:15px'/>
             </form>
         `)
     })

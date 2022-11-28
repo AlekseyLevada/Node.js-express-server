@@ -146,16 +146,16 @@ app.get('/', (request, response) => {
                                         <a href='/reviews/get' style='text-decoration:none'>Список отзывов</a>
                                     </li>
                                     <li>
-                                        <a href='' style='text-decoration:none'>Получить отзыв</a>
+                                        <a href='/reviews/form_get_review' style='text-decoration:none'>Получить отзыв</a>
                                     </li>
                                     <li>
                                         <a href='/reviews/form_add_review' style='text-decoration:none'>Добавить отзыв</a>
                                     </li>
                                     <li>
-                                        <a href='/users/form_del_review' style='text-decoration:none'>Удалить отзыв</a>
+                                        <a href='/reviews/form_del_review' style='text-decoration:none'>Удалить отзыв</a>
                                     </li>
                                     <li>
-                                        <a href='/users/form_edit_review' style='text-decoration:none'>Редактировать отзыв</a>
+                                        <a href='/reviews/form_edit_review' style='text-decoration:none'>Редактировать отзыв</a>
                                     </li>
                                 </ul>
                         </div>

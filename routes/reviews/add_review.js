@@ -49,6 +49,7 @@ module.exports = app => {
         </h1>
         <form method='post' action='/reviews/add' enctype='multipart/form-data'>
         <input type='text' placeholder='Ваше имя' name='NAME'style='margin-bottom:15px'/><br>
+        <input type='text' placeholder='ID товара' name='GOOD_ID'style='margin-bottom:15px'/><br>
         <textarea type='text' placeholder='Ваш отзыв о товаре' name='TEXT' cols=57 rows=10></textarea><br>
         <input type='submit' value='Отправить' style='margin-top:15px; padding:10px; font-size:14px; font-family: Trebuchet MS'/>
         </form>

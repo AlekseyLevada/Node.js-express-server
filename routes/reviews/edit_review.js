@@ -16,17 +16,20 @@ module.exports = (app) => {
      * Автор: Алексей Левада
      * Описание: Возвращает JSON с полями, которые описывают успешное редактирования отзыва в БД 
      * Версия: v1
-     * Метод: POST
-     * Пример работы с запросом:
-     * 
+     * Метод: POST 
      */
 
     app.post('/reviews/edit', fileFromForm, (req, res) => {
+
         data = {
             'ID': req.body.ID,
             'TEXT': req.body.TEXT,
+            'USER':req.body.USER,
+            'GOOD_ID': req.body.GOOD_ID,
         }
-        console.log(req.body)
+
+        //console.log(req.body.ID)
+        
         new WorkerTablesReviews(req, res).update(data)
     })
 
@@ -47,7 +50,9 @@ module.exports = (app) => {
             </h1>
             <form method='post' action='/reviews/edit' enctype='multipart/form-data'>
                 <input type='text' name='ID' placeholder='ID отзыва' style='margin-bottom:15px'><br>
-                <textarea type='text' placeholder='Новый текст' name='TEXT' cols=67 rows=15></textarea><br>
+                <input type='text' name='USER' placeholder='Имя пользователя' style='margin-bottom:15px'><br>
+                <input type='text' name='GOOD_ID' placeholder='ID товара' style='margin-bottom:15px'><br>
+                <textarea type='text' placeholder='Новый текст' name='TEXT' cols=67 rows=15 style='margin-bottom:15px'></textarea><br>
                 <input type='submit' value='Изменить' style='margin-top:15px; padding:10px; font-size:14px; font-family: Trebuchet MS'>
             </form>
         `)
