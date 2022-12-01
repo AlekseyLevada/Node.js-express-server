@@ -1,6 +1,9 @@
 // Отправляет почтовое сообщение
 
 module.exports = class WorkerForMail {
+    #transport
+    req 
+    res
 
     #nodemailer = require('nodemailer')
 
@@ -13,13 +16,9 @@ module.exports = class WorkerForMail {
             pass: 'inordic',
         }
     }
-    #transport
-    req
-    res
 
     #createTransporter() {
         //console.log(`NODEMAILER`, this.#nodemailer)
-
         return this.#nodemailer.createTransport(this.#configuration)
     }
 
@@ -43,7 +42,7 @@ module.exports = class WorkerForMail {
 
     constructor(req, res) {
         this.#transport = this.#createTransporter()
-        this.req = this.req
+        this.req = req
         this.res = res
     }
 }

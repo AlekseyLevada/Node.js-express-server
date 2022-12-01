@@ -26,8 +26,6 @@ module.exports = (app) => {
 
         workerForMail.sendMail(messageToManager)
 
-        
-
         // let transporter = nodeMailer.createTransport({
         //     host: 'smtp.yandex.ru',
         //     port: 465,
@@ -51,18 +49,18 @@ module.exports = (app) => {
         //         :
         //         res.send('Письмо отправленно', info.messageId, info.response)
         // })
-
     })
 
     /**
-  * Вспомогательный маршрут с формой для отправки сообщения админисиратору:
-  * Автор: Алексей Левада
-  * Описание: Возвращает html форму
-  * Версия: v1
-  * Метод: GET
-  * Пример работы с запросом:
-  * Ввести в адресную строку - http://localhost:3000/mail/form
-  */
+    * Вспомогательный маршрут с формой для отправки сообщения админисиратору:
+    * Автор: Алексей Левада
+    * Описание: Возвращает html форму
+    * Версия: v1
+    * Метод: GET
+    * Пример работы с запросом:
+    * Ввести в адресную строку - http://localhost:3000/mail/form
+    */
+   
     app.get('/mail/form', (req, res) => {
         res.send(
             `<h1>

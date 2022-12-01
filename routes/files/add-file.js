@@ -1,13 +1,12 @@
 const multer = require('multer')
 
-const fs = require('fs')
-
-
 //Настраиваем куда будем сохранять файл
 const uplodeFormFrom = multer({ dest: '/uploads' })
 
 //Устанавливаем название файла в форме
 const fileFromForm = uplodeFormFrom.single('MYFILE')
+
+const fs = require('fs')
 
 module.exports = (app) => {
 
