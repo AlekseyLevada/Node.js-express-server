@@ -19,7 +19,7 @@ module.exports = (app) => {
      * Ввести в адресную строку - http://localhost:3000/form_del_file
      */
     
-    app.post('/file/del', fileFromForm, (req, res) => {
+    app.post('/files/file/del', fileFromForm, (req, res) => {
         //Получить название файла 
         const fileName = req.body.MYNAME
 
@@ -50,12 +50,12 @@ module.exports = (app) => {
      * Ввести в адресную строку - http://localhost:3000/form_del_file
      */
 
-     app.get('/form_del_file', (req, res) => {
+     app.get('/files/form_del_file', (req, res) => {
         res.send(
             `<h1>
             Форма для удаления файла
         </h1>
-            <form action='/file/del' method='post' enctype='multipart/form-data'>
+            <form action='/files/file/del' method='post' enctype='multipart/form-data'>
                 <input type='text' placeholder='Введите название файла' name='MYNAME'/><br>
                 <input type='submit' value='Удалить' style='margin-top:15px'/>
             </form>

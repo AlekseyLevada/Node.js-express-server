@@ -1,4 +1,5 @@
 const multer = require('multer')
+
 const fs = require('fs')
 
 
@@ -20,7 +21,7 @@ module.exports = (app) => {
      * Ввести в адресную строку - http://localhost:3000/file/add
      */
 
-    app.post('/file/add', fileFromForm, (req, res) => {
+    app.post('/files/file/add', fileFromForm, (req, res) => {
         // Вывод в консоль файла
         //console.log(req.file)
 
@@ -61,12 +62,12 @@ module.exports = (app) => {
      * Ввести в адресную строку - http://localhost:3000/form_add_file
      */
 
-     app.get('/form_add_file', (req, res) => {
+     app.get('/files/form_add_file', (req, res) => {
         res.send(
             `<h1>
             Форма для добавления файла
         </h1>
-            <form action='/file/add' method='post' enctype='multipart/form-data'>
+            <form action='/files/file/add' method='post' enctype='multipart/form-data'>
                 <input type='file' name='MYFILE'/><br>
                 <input type='submit' value='Сохранить' style='margin-top:15px'/>
             </form>

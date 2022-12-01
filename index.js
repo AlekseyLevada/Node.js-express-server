@@ -79,23 +79,23 @@ app.get('/', (request, response) => {
                     <h1 style='text-align:center; font-family:Trebuchet MS'>
                         Разводная страница
                     </h1>
-                    <div class='container' style='display:flex; justify-content:space-around; font-family:Trebuchet MS; font-size:18px'>
-                        <div class='mail' style='outline:3px solid #000; padding:15px; width:20%'>
+                    <div class='container' style='display:flex; justify-content:space-around; font-family:Trebuchet MS; font-size:16px'>
+                        <div class='mail' style='outline:3px solid #000; padding:15px; width:15%'>
                             <h2 style='text-align:center'>
                                 Почта
                             </h2>
-                            <ul style='list-style:square'>
+                            <ul style='list-style:disc'>
                                 <li>
                                     <a href='/mail/form' style='text-decoration:none'>Отправить письмо</a>
                                 </li>
                             </ul>
                         </div>
 
-                        <div class='goods' style='outline:3px solid #000; padding:15px; width:20%'>
+                        <div class='goods' style='outline:3px solid #000; padding:15px; width:15%'>
                             <h2 style='text-align:center'>
                                 Товары
                             </h2>
-                                <ul style='line-height:30px; list-style:square'>
+                                <ul style='line-height:30px; list-style:disc'>
                                     <li>
                                         <a href='/goods/get' style='text-decoration:none'>Получить товары </a>
                                     </li>
@@ -114,11 +114,11 @@ app.get('/', (request, response) => {
                                 </ul>
                         </div>
 
-                        <div class='users' style='outline:3px solid #000; padding:15px; width:20%'>
+                        <div class='users' style='outline:3px solid #000; padding:15px; width:15%'>
                             <h2 style='text-align:center'>
                                 Пользователи
                             </h2>
-                                <ul style='line-height: 30px; list-style:square'>
+                                <ul style='line-height: 30px; list-style:disc'>
                                     <li>
                                         <a href='/users/get' style='text-decoration:none'>Список пользователей</a>
                                     </li>
@@ -137,11 +137,11 @@ app.get('/', (request, response) => {
                                 </ul>
                         </div>
 
-                        <div class='reviews' style='outline:3px solid #000; padding:15px; width:20%'>
+                        <div class='reviews' style='outline:3px solid #000; padding:15px; width:15%'>
                             <h2 style='text-align:center'>
                                 Отзывы
                             </h2>
-                                <ul style='line-height:30px; list-style:square'>
+                                <ul style='line-height:30px; list-style:disc'>
                                     <li>
                                         <a href='/reviews/get' style='text-decoration:none'>Список отзывов</a>
                                     </li>
@@ -156,6 +156,20 @@ app.get('/', (request, response) => {
                                     </li>
                                     <li>
                                         <a href='/reviews/form_edit_review' style='text-decoration:none'>Редактировать отзыв</a>
+                                    </li>
+                                </ul>
+                        </div>
+
+                        <div class='files' style='outline:3px solid #000; padding:15px; width:15%'>
+                            <h2 style='text-align:center'>
+                                Работа с файлами
+                            </h2>
+                                <ul style='line-height:30px; list-style:disc'>
+                                    <li>
+                                        <a href='/files/form_add_file' style='text-decoration:none'>Добавить файл</a>
+                                    </li>
+                                    <li>
+                                        <a href='/files/form_del_file' style='text-decoration:none'>Удалить файл</a>
                                     </li>
                                 </ul>
                         </div>
