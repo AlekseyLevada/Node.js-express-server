@@ -26,29 +26,32 @@ module.exports = (app) => {
 
         workerForMail.sendMail(messageToManager)
 
-        // let transporter = nodeMailer.createTransport({
-        //     host: 'smtp.yandex.ru',
-        //     port: 465,
-        //     secure: 465,
-        //     auth: {
-        //         user: 'inordic2022',
-        //         pass: 'inordic',
-        //     }
-        // })
-        // let mailOptions = {
-        //     from: '"inordic"<inordic2022@yandex.ru>',
-        //     to: 'aleksey.levada@gmail.com',
-        //     subject: 'Тестовое письмо с магазина Inordic',
-        //     html: messageToManager
-        // }
+        /** 
+         * let transporter = nodeMailer.createTransport({
+            host: 'smtp.yandex.ru',
+            port: 465,
+            secure: 465,
+            auth: {
+                user: 'inordic2022',
+                pass: 'inordic',
+            }
+        })
 
-        // transporter.sendMail(mailOptions, (err, info) => {
+        let mailOptions = {
+            from: '"inordic"<inordic2022@yandex.ru>',
+            to: 'aleksey.levada@gmail.com',
+            subject: 'Тестовое письмо с магазина Inordic',
+            html: messageToManager
+        }
 
-        //     err ?
-        //         res.send(err)
-        //         :
-        //         res.send('Письмо отправленно', info.messageId, info.response)
-        // })
+        transporter.sendMail(mailOptions, (err, info) => {
+            err ?
+                res.send(err)
+                :
+                res.send('Письмо отправленно', info.messageId, info.response)
+        })
+        */
+        
     })
 
     /**

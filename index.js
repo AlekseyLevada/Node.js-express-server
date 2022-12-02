@@ -1,45 +1,3 @@
-//Документация NODE
-//https://nodejs.org/dist/latest-v16.x/docs/api/synopsis.html#example
-
-const WorkerFiles = require('./services/worker-files/index.js')
-
-//Импортируем плагины
-const express = require("express")
-const mysql = require('mysql')
-
-// Плагин для работы с файлами и папками
-const fs = require('fs')
-
-//Рабочий порт
-const port = 3000
-
-//Создадим подключение к баззе данных
-
-//1. Создадим конфигурацию на подключение
-
-// function config () {
-//     return {
-//       host: "94.228.126.172",
-//       port: 3306,
-//       user: "inordic_sch_usr",
-//       password: "VANCfzNsov9GDt1M",
-//       database: "inordic_school",
-//       connectionLimit : 1000,
-//       connectTimeout  : 60 * 60 * 1000,
-//       acquireTimeout  : 60 * 60 * 1000,
-//       timeout         : 60 * 60 * 1000
-//     }
-//   }
-
-
-//2. Создадим подключение
-
-//const connect = mysql.createPool(config())
-
-//Инициализируем приложение express
-const app = express();
-
-
 /**
  * План для построения интернет магазина (что нужно добавить)
  * 
@@ -63,12 +21,54 @@ const app = express();
  * Прописать все базовые (указанные выше) маршруты
  */
 
+//Документация NODE
+//https://nodejs.org/dist/latest-v16.x/docs/api/synopsis.html#example
+
+const WorkerFiles = require('./services/worker-files/index.js')
+
+//Импортируем плагины
+
+const express = require("express")
+const mysql = require('mysql')
+
+// Плагин для работы с файлами и папками
+const fs = require('fs')
+
+//Рабочий порт
+const port = 3000
+
+//Создадим подключение к баззе данных
+
+//1. Создадим конфигурацию на подключение
+
+/**function config () {
+    return {
+      host: "94.228.126.172",
+      port: 3306,
+      user: "inordic_sch_usr",
+      password: "VANCfzNsov9GDt1M",
+      database: "inordic_school",
+      connectionLimit : 1000,
+      connectTimeout  : 60 * 60 * 1000,
+      acquireTimeout  : 60 * 60 * 1000,
+      timeout         : 60 * 60 * 1000
+    }
+  } */
+
+
+//2. Создадим подключение
+
+//const connect = mysql.createPool(config())
+
+//Инициализируем приложение express
+const app = express();
+
 
 //Первый базовый маршрут приложения
 app.get('/', (request, response) => {
 
-    //Посылаем ответ от сервера
-    ///console.log(request.query.test)
+//Посылаем ответ от сервера
+    //console.log(request.query.test)
 
     //Декомпозиция объекта
     const { test, name } = request.query
@@ -176,10 +176,8 @@ app.get('/', (request, response) => {
                     </div>
                 </div>
             </body>
-            `
-    )
-}
-)
+        `)
+})
 
 //Распределяем роутеры по файлам
 
@@ -201,28 +199,30 @@ folderFromRoutes.map(folderName => {
     })
 })
 
-// // Роуты для товаров
-// require('./routes/good/get_all_goods.js')(app)
-// require('./routes/good/get_item.js')(app)
-// require('./routes/good/del_item.js')(app)
-// require('./routes/good/add_item.js')(app)
-// require('./routes/good/edit_item.js')(app)
+/**
+Роуты для товаров
+require('./routes/good/get_all_goods.js')(app)
+require('./routes/good/get_item.js')(app)
+require('./routes/good/del_item.js')(app)
+require('./routes/good/add_item.js')(app)
+require('./routes/good/edit_item.js')(app)
 
-// // Роуты для юзеров
-// require('./routes/user/add_user.js')(app)
-// require('./routes/user/del_user.js')(app)
-// require('./routes/user/edit_user.js')(app)
-// require('./routes/user/get_all_users.js')(app)
-// require('./routes/user/get_user.js')(app)
+Роуты для юзеров
+require('./routes/user/add_user.js')(app)
+require('./routes/user/del_user.js')(app)
+require('./routes/user/edit_user.js')(app)
+require('./routes/user/get_all_users.js')(app)
+require('./routes/user/get_user.js')(app)
 
-// // Роуты для отзывов
-// require('./routes/reviews/add_review.js')(app)
-// require('./routes/reviews/get_all_reviews.js')(app)
-// require('./routes/reviews/del_review.js')(app)
-// require('./routes/reviews/edit_review.js')(app)
+Роуты для отзывов
+require('./routes/reviews/add_review.js')(app)
+require('./routes/reviews/get_all_reviews.js')(app)
+require('./routes/reviews/del_review.js')(app)
+require('./routes/reviews/edit_review.js')(app)
 
-// //Роут для отправки писем
-// require('./routes/mail/index.js')(app)
+//Роут для отправки писем
+require('./routes/mail/index.js')(app)
+ */
 
 //Начинаем прослушивать порт который указали в настройках сервера (localhost:3000/)
 
