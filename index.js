@@ -181,21 +181,23 @@ app.get('/', (request, response) => {
 
 //Распределяем роутеры по файлам
 
-const NAME_FOLDER_ROUTES = 'routes'
+const firstLvlDir = 'routes'
 
 //Получаем массив с названиями папок внутри папки routes
-const folderFromRoutes = fs.readdirSync(`./${NAME_FOLDER_ROUTES}`)
 
-folderFromRoutes.map(folderName => {
-    //получаем папки, внутри папок в папке routes
+const folderFromFirstDir = fs.readdirSync(`./${firstLvlDir}`)
 
-    const folderFromInRoutes = fs.readdirSync(`./${NAME_FOLDER_ROUTES}/${folderName}/`)
+folderFromFirstDir.map(secondLvlDir => {
 
-    folderFromInRoutes.map(fileName => {
+//Получаем папки, внутри папок в папке routes
+
+    const fileInSecondDir = fs.readdirSync(`./${firstLvlDir}/${secondLvlDir}/`)
+
+    fileInSecondDir.map(fileName => {
 
         //console.log(fileName)
 
-        require(`./${NAME_FOLDER_ROUTES}/${folderName}/${fileName}`)(app)
+        require(`./${firstLvlDir}/${secondLvlDir}/${fileName}`)(app)
     })
 })
 

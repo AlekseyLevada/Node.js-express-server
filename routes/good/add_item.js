@@ -14,11 +14,11 @@ const WorkerTableGoods = require('../../services/worker-tables/goods.js')
 
 module.exports = (app) => {
     /**
- * Маршрут для добавления одного товара:
- * Автор: Алексей Левада
- * Описание: Возвращает JSON с полями, которые описывают успешное добавление товара в БД 
- * Версия: v1
- * Метод: POST
+     * Маршрут для добавления одного товара:
+     * Автор: Алексей Левада
+     * Описание: Возвращает JSON с полями, которые описывают успешное добавление товара в БД 
+     * Версия: v1
+     * Метод: POST
  */
     app.post('/goods/add', fileFromForm, (req, res) => {
 
@@ -37,12 +37,16 @@ module.exports = (app) => {
 
         workerTableGoods.add(data)
 
-        // //Сгенерировать запрос на добавление товаров в БД
-        // const sql = 'INSERT INTO `goods` (`ID`,`TITLE`,`DISCR`,`PRICE`,`IMG`,`COUNT`) VALUES ("' + id + '","' + title + '","' + discr + '","' + price + '","' + img + '","' + count + '")'
-        // //Стандартная конструкция для отправки запроса в базу
-        // connect.query(sql, (err, result) => {
-        //     err ? res.send(err) : res.send(JSON.stringify(result))
-        // })
+        /**
+        *   //Сгенерировать запрос на добавление товаров в БД
+        *   const sql = 'INSERT INTO `goods` (`ID`,`TITLE`,`DISCR`,`PRICE`,`IMG`,`COUNT`) VALUES ("' + id + '","' + title + '","' + discr + '","' + price + '","' + img + '","' + count + '")'
+        *   //Стандартная конструкция для отправки запроса в базу
+        *   connect.query(sql, (err, result) => {
+        *   err ? res.send(err)
+        *   :
+        *   res.send(JSON.stringify(result))
+         })
+        */
     })
 
     /**
@@ -61,11 +65,11 @@ module.exports = (app) => {
             Форма для добавления товара
         </h1>
             <form action='/goods/add' method='post' enctype='multipart/form-data'>
-                <input type='text' name='TITLE' placeholder ='TITLE'/>
-                <input type='text' name='DISCR' placeholder ='DISCR'/>
-                <input type='text' name='PRICE' placeholder ='PRICE'/>
-                <input type='text' name='COUNT' placeholder ='COUNT'/>
-                <input type='text' name='IMG' placeholder ='IMG'/>
+                <input type='text' name='TITLE' placeholder ='TITLE' style='margin-bottom:15px; height:25px'/><br>
+                <textarea type='text' name='DISCR' placeholder ='DISCR' style='margin-bottom:15px' cols='58' rows='15'></textarea><br>
+                <input type='text' name='PRICE' placeholder ='PRICE' style='margin-bottom:15px; height:25px'/><br>
+                <input type='text' name='COUNT' placeholder ='COUNT' style='margin-bottom:15px; height:25px'/><br>
+                <input type='file' name='IMG' placeholder ='IMG' style='margin-bottom:15px'/><br>
                 <input type='submit' value='Добавить'/>
             </form>
         `
