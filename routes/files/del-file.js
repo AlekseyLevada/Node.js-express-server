@@ -47,7 +47,7 @@ module.exports = (app) => {
      * Версия: v1
      * Метод: GET
      * Пример работы с запросом:
-     * Ввести в адресную строку - http://localhost:3000/form_del_file
+     * Ввести в адресную строку - http://localhost:3000/files/form_del_file
      */
 
      app.get('/files/form_del_file', (req, res) => {

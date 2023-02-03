@@ -41,7 +41,7 @@ module.exports = (app) => {
         src.pipe(dest)
 
         const resFromAPI = {}
-        
+
         src.on('end', () => {
             resFromAPI.status = 200
             resFromAPI.message = 'Файл успешно загрузился'
