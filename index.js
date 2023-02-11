@@ -35,7 +35,7 @@ const mysql = require('mysql')
 const fs = require('fs')
 
 //Рабочий порт
-const port = 3000
+const port = 3001
 
 //Создадим подключение к баззе данных
 
@@ -61,7 +61,17 @@ const port = 3000
 //const connect = mysql.createPool(config())
 
 //Инициализируем приложение express
+
 const app = express();
+
+let corsOption = {
+    origin: 'http://localhost:3000'
+}
+
+const cors = require('cors')
+app.use(cors(corsOption))
+
+
 
 
 //Первый базовый маршрут приложения
